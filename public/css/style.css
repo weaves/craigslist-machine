@@ -6,3 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+.btn-xl {
+  padding: 20px 32px;
+  font-size: 36px !important;
+  line-height: 1.33;
+  border-radius: 12px;
+}

@@ -63,7 +63,7 @@ block content
 				label Don't show any email address
 					input(type='radio' name='cl-cl:replyEmail-atrb' id='cl-cl:replyEmail-atrb-A' value='A')
 		hr.featurette-divider
-		p.lead Location Information
+		p <span class='lead'>Location Information </span>( * indicates subareas available )
 		form.form
 			div.radio
 				label Atlanta
@@ -72,7 +72,7 @@ block content
 				label Baltimore
 					input(type='radio' name='area' id='cl-cl:area-bal' value='bal')
 			div.radio
-				label Boston (select for subareas)
+				label Boston*
 					input(type='radio' name='area' id='cl-cl:area-bos' value='bos')
 				div.form#bosExtra
 					div.checkbox
@@ -94,7 +94,7 @@ block content
 				label Charlotte
 					input(type='radio' name='area' id='cl-cl:area-cha' value='cha')
 			div.radio
-				label Chicago (select for subareas)
+				label Chicago*
 					input(type='radio' name='area' id='cl-cl:area-chi' value='chi')
 				div.form#chiExtra
 					div.checkbox
@@ -119,7 +119,7 @@ block content
 				label Columbus
 					input(type='radio' name='area' id='cl-cl:area-col' value='col')
 			div.radio
-				label Dallas (select for subareas)
+				label Dallas*
 					input(type='radio' name='area' id='cl-cl:area-dal' value='dal')
 				div.form#dalExtra
 					div.checkbox
@@ -144,7 +144,7 @@ block content
 				label Detroit
 					input(type='radio' name='area' id='cl-cl:area-det' value='det')
 			div.radio
-				label Hawaii (select for subareas)
+				label Hawaii*
 					input(type='radio' name='area' id='cl-cl:area-hnl' value='hnl')
 				div.form#hnlExtra
 					div.checkbox
@@ -169,7 +169,7 @@ block content
 				label Jacksonville
 					input(type='radio' name='area' id='cl-cl:area-jax' value='jax')
 			div.radio
-				label Los Angeles (select for subareas)
+				label Los Angeles*
 					input(type='radio' name='area' id='cl-cl:area-lax' value='lax')
 				div.form#laxExtra
 					div.checkbox
@@ -200,7 +200,7 @@ block content
 				label Nashville
 					input(type='radio' name='area' id='cl-cl:area-nsh' value='nsh')
 			div.radio
-				label New York (select for subareas)
+				label New York*
 					input(type='radio' name='area' id='cl-cl:area-nyc' value='nyc')
 				div.form#nycExtra
 					div.checkbox
@@ -237,7 +237,7 @@ block content
 				label Philadelphia
 					input(type='radio' name='area' id='cl-cl:area-phi' value='phi')
 			div.radio
-				label Phoenix (select for subareas)
+				label Phoenix*
 					input(type='radio' name='area' id='cl-cl:area-phx' value='phx')
 				div.form#phxExtra
 					div.checkbox
@@ -262,7 +262,7 @@ block content
 				label San Diego
 					input(type='radio' name='area' id='cl-cl:area-sdo' value='sdo')
 			div.radio
-				label San Francisco (select for subareas)
+				label San Francisco*
 					input(type='radio' name='area' id='cl-cl:area-sfo' value='sfo')
 				div.form#sfoExtra
 					div.checkbox
@@ -287,7 +287,7 @@ block content
 				label Santa Barbara
 					input(type='radio' name='area' id='cl-cl:area-sba' value='sba')
 			div.radio
-				label Seattle (select for subareas)
+				label Seattle*
 					input(type='radio' name='area' id='cl-cl:area-sea' value='sea')
 				div.form#seaExtra
 					div.checkbox
@@ -315,7 +315,7 @@ block content
 				label Toronto
 					input(type='radio' name='area' id='cl-cl:area-tor' value='tor')
 			div.radio
-				label Washington D.C. (select for subareas)
+				label Washington D.C.*
 					input(type='radio' name='area' id='cl-cl:area-wdc' value='wdc')
 				div.form#wdcExtra
 					div.checkbox
@@ -370,6 +370,9 @@ block content
 			div.checkbox
 				label Recruiters OK
 					input(type='checkbox' name='cl-cl:jobInfo-recruitersOK' id='cl-cl:jobInfo-recruitersOK' value='recruitersOK')
+		hr.featurette-divider
+		div.text-center
+			button.btn.btn-primary.btn-xl &nbsp&nbsp&nbsp&nbspGO!&nbsp&nbsp&nbsp&nbsp
 	script(type='text/javascript').
 		$('#otherOptionsBTN').click(function() {
 			$('#otherOptions').collapse('toggle');

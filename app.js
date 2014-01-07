@@ -7,7 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
-//var builder = require('xmlbuilder');
+var builder = require('xmlbuilder');
 
 var app = express();
 
