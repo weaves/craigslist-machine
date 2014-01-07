@@ -7,7 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
-var builder = require('xmlbuilder');
+//var builder = require('xmlbuilder');
 
 var app = express();
 
@@ -34,11 +34,11 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var craig = builder.create('rdf:RDF')
+/*var craig = builder.create('rdf:RDF')
 	craig.att('xmlns', 'http://purl.org/rss/1.0/')
 		.ele('channel')
 			.ele('items')
 				.ele('rdf:li', {'rdf:resource': 'JobPosting1'})
 	craig.end({ pretty: true});
 
-console.log(craig.stringify);
+console.log(craig.stringify);*/
