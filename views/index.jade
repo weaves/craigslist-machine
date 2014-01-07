@@ -6,7 +6,7 @@ block content
 			h2 Uber Craigslist Machine! #uberdomination
 			p.lead Need to automatically post Uber and UberX job postings to Craigslist? Use the form below and click GO 	!
 		p.lead craigslist Account Credentials
-		form.form
+		form.form#cl-auth
 			div.form-group
 				label(for='cl-username') craigslist Username
 				input(id='cl-username' name='cl-username' type='text' placeholder='craigslist-admin@uber.com').form-control
@@ -18,12 +18,12 @@ block content
 				input(id='cl-accountID' name='cl-accountID' type='text' placeholder='####').form-control
 		hr.featurette-divider
 		p.lead Post Basics
-		form.form
+		form.form#cl-postBasics
 			div.form-group
 				label(for='cl-title') Post Title
 				input(id='cl-title' name='cl-title' type='text' placeholder='Drive for Uber').form-control
 			label(for='cl-description') Post Description
-			textarea.form-control(placeholder='Job posting details' rows=4)#cl-post-description
+			textarea.form-control(placeholder='Job posting details' name='cl-description' rows=4)#cl-post-description
 		br
 		form.form
 			label(for='cl-cl:categorgy') Post Category
@@ -372,7 +372,7 @@ block content
 					input(type='checkbox' name='cl-cl:jobInfo-recruitersOK' id='cl-cl:jobInfo-recruitersOK' value='recruitersOK')
 		hr.featurette-divider
 		div.text-center
-			button.btn.btn-primary.btn-xl &nbsp&nbsp&nbsp&nbspGO!&nbsp&nbsp&nbsp&nbsp
+			button(data-toggle='modal', href='#postModal').btn.btn-primary.btn-xl &nbsp&nbsp&nbsp&nbspGO!&nbsp&nbsp&nbsp&nbsp
 	script(type='text/javascript').
 		$('#otherOptionsBTN').click(function() {
 			$('#otherOptions').collapse('toggle');
@@ -417,8 +417,62 @@ block content
 			$('#seaExtra').hide();
 			$('#wdcExtra').hide();
 		}
+		var validate = function() {
+			$('#cl-auth').validate( {
+				rules: {
+					'cl-username': {
+						minlength: 2,
+						required: true,
+						email: true
+					},
+					'cl-password': {
+						minlength: 2,
+						required: true
+					},
+					'cl-accountID': {
+						minlength: 2,
+						required: true
+					}
+				},
+				messages: {
+					'cl-username': 'Please enter a valid email username',
+					'cl-password': 'Please enter a valid password',
+					'cl-accountID': 'Please enter a valid account ID',
+				},
+				highlight: function(element) {
+					$(element).closest('.form-group').addClass('has-error');
+				},
+				success: function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+					$(element).closest('.error').remove();
+				}
+			});
+			$('#cl-postBasics').validate( {
+				rules: {
+					'cl-title': {
+						minlength: 5,
+						required: true
+					},
+					'cl-description': {
+						minlength: 5,
+						required: true
+					}
+				},
+				messages: {
+					'cl-title': 'Please enter a valid post title',
+					'cl-description': 'Please enter a valid post description'
+				},
+				highlight: function(element) {
+					$(element).closest('.form-group').addClass('has-error');
+				},
+				success: function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+					$(element).closest('.error').remove();
+				}
+			});
+		}
 		$(document).ready(function() {
 			hideAll();
-			console.log('YO YO');
 			watchLocation();
+			validate();
 		});
