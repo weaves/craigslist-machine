@@ -1,0 +1,16 @@
+{
+  "name": "uberCraigslistMachine",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*"
+  },
+  "engines": {
+    "node": "0.10.21",
+    "npm": "1.3.x"
+  }
+}

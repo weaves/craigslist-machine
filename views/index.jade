@@ -1,0 +1,421 @@
+extends layout
+
+block content
+	div.container
+		div.jumbotron
+			h2 Uber Craigslist Machine! #uberdomination
+			p.lead Need to automatically post Uber and UberX job postings to Craigslist? Use the form below and click GO 	!
+		p.lead craigslist Account Credentials
+		form.form
+			div.form-group
+				label(for='cl-username') craigslist Username
+				input(id='cl-username' name='cl-username' type='text' placeholder='craigslist-admin@uber.com').form-control
+			div.form-group
+				label(for='cl-password') craigslist Password
+				input(id='cl-password' name='cl-password' type='password' placeholder='password').form-control
+			div.form-group
+				label(for='cl-accountID') craigslist Account ID
+				input(id='cl-accountID' name='cl-accountID' type='text' placeholder='####').form-control
+		hr.featurette-divider
+		p.lead Post Basics
+		form.form
+			div.form-group
+				label(for='cl-title') Post Title
+				input(id='cl-title' name='cl-title' type='text' placeholder='Drive for Uber').form-control
+			label(for='cl-description') Post Description
+			textarea.form-control(placeholder='Job posting details' rows=4)#cl-post-description
+		br
+		form.form
+			label(for='cl-cl:categorgy') Post Category
+			div.radio
+				label Transportation
+					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-trp' value='trp' checked='TRUE')
+			div.radio
+				label Business / Management
+					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-bus' value='bus')
+			div.radio
+				label Customer Service
+					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-csr' value='csr')
+			div.radio
+				label Et Cetera
+					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-etc' value='etc')
+			div.radio
+				label General Labor
+					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-lab' value='lab')
+			div.radio
+				label Skilled Trades
+					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-trd' value='trd')
+		hr.featurette-divider
+		p.lead Contact Information
+		form.form
+			div.form-group
+				label(for='cl-cl:replyEmail') Reply Email
+				input(id='cl-cl:replyEmail' name='cl-cl:replyEmail' type='text' placeholder='ubersf@uber.com').form-control
+		form.form
+			label(for='cl-cl:categorgy') Contact Attributes
+			div.radio
+				label Publicly show reply email
+					input(type='radio' name='cl-cl:replyEmail-atrb' id='cl-cl:replyEmail-atrb-P' value='P' checked='TRUE')
+			div.radio
+				label Use anonymous craigslist email address
+					input(type='radio' name='cl-cl:replyEmail-atrb' id='cl-cl:replyEmail-atrb-C' value='C')
+			div.radio
+				label Don't show any email address
+					input(type='radio' name='cl-cl:replyEmail-atrb' id='cl-cl:replyEmail-atrb-A' value='A')
+		hr.featurette-divider
+		p.lead Location Information
+		form.form
+			div.radio
+				label Atlanta
+					input(type='radio' name='area' id='cl-cl:area-atl' value='atl' checked='true')
+			div.radio
+				label Baltimore
+					input(type='radio' name='area' id='cl-cl:area-bal' value='bal')
+			div.radio
+				label Boston (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-bos' value='bos')
+				div.form#bosExtra
+					div.checkbox
+						label boston/cambridge/brookline
+							input(type='checkbox' name='cl-cl:area-bos-extra' id='cl-cl:area-bos-gbs' value='gbs')
+					div.checkbox
+						label northwest/merrimack
+							input(type='checkbox' name='cl-cl:area-bos-extra' id='cl-cl:area-bos-nwb' value='nwb')
+					div.checkbox
+						label metro west
+							input(type='checkbox' name='cl-cl:area-bos-extra' id='cl-cl:area-bos-bmw' value='bmw')
+					div.checkbox
+						label north shore
+							input(type='checkbox' name='cl-cl:area-bos-extra' id='cl-cl:area-bos-nos' value='nos')
+					div.checkbox
+						label south shore
+							input(type='checkbox' name='cl-cl:area-bos-extra' id='cl-cl:area-bos-sob' value='sob')
+			div.radio
+				label Charlotte
+					input(type='radio' name='area' id='cl-cl:area-cha' value='cha')
+			div.radio
+				label Chicago (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-chi' value='chi')
+				div.form#chiExtra
+					div.checkbox
+						label city of chicago
+							input(type='checkbox' name='cl-cl:area-chi-extra' id='cl-cl:area-chi-chc' value='chc')
+					div.checkbox
+						label north chicagoland
+							input(type='checkbox' name='cl-cl:area-chi-extra' id='cl-cl:area-chi-nch' value='nch')
+					div.checkbox
+						label west chicagoland
+							input(type='checkbox' name='cl-cl:area-chi-extra' id='cl-cl:area-chi-wcl' value='wcl')
+					div.checkbox
+						label south chicagoland
+							input(type='checkbox' name='cl-cl:area-chi-extra' id='cl-cl:area-chi-sox' value='sox')
+					div.checkbox
+						label northwest indiana
+							input(type='checkbox' name='cl-cl:area-chi-extra' id='cl-cl:area-chi-nwi' value='nwi')
+					div.checkbox
+						label northwest suburbs
+							input(type='checkbox' name='cl-cl:area-chi-extra' id='cl-cl:area-chi-nch' value='nwc')
+			div.radio
+				label Columbus
+					input(type='radio' name='area' id='cl-cl:area-col' value='col')
+			div.radio
+				label Dallas (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-dal' value='dal')
+				div.form#dalExtra
+					div.checkbox
+						label dallas
+							input(type='checkbox' name='cl-cl:area-dal-extra' id='cl-cl:area-dal-dal' value='dal')
+					div.checkbox
+						label fort worth
+							input(type='checkbox' name='cl-cl:area-dal-extra' id='cl-cl:area-dal-ftw' value='ftw')
+					div.checkbox
+						label mid cities
+							input(type='checkbox' name='cl-cl:area-dal-extra' id='cl-cl:area-dal-mdf' value='mdf')
+					div.checkbox
+						label north dfw
+							input(type='checkbox' name='cl-cl:area-dal-extra' id='cl-cl:area-dal-ndf' value='ndf')
+					div.checkbox
+						label south dfw
+							input(type='checkbox' name='cl-cl:area-dal-extra' id='cl-cl:area-dal-sdf' value='sdf')
+			div.radio
+				label Denver
+					input(type='radio' name='area' id='cl-cl:area-den' value='den')
+			div.radio
+				label Detroit
+					input(type='radio' name='area' id='cl-cl:area-det' value='det')
+			div.radio
+				label Hawaii (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-hnl' value='hnl')
+				div.form#hnlExtra
+					div.checkbox
+						label oahu
+							input(type='checkbox' name='cl-cl:area-hnl-extra' id='cl-cl:area-hnl-oah' value='oah')
+					div.checkbox
+						label big island
+							input(type='checkbox' name='cl-cl:area-hnl-extra' id='cl-cl:area-hnl-big' value='big')
+					div.checkbox
+						label maui
+							input(type='checkbox' name='cl-cl:area-hnl-extra' id='cl-cl:area-hnl-mau' value='mau')
+					div.checkbox
+						label kauai
+							input(type='checkbox' name='cl-cl:area-hnl-extra' id='cl-cl:area-hnl-kau' value='kau')
+					div.checkbox
+						label molokai
+							input(type='checkbox' name='cl-cl:area-hnl-extra' id='cl-cl:area-hnl-mol' value='mol')
+			div.radio
+				label Indianapolis
+					input(type='radio' name='area' id='cl-cl:area-ind' value='ind')
+			div.radio
+				label Jacksonville
+					input(type='radio' name='area' id='cl-cl:area-jax' value='jax')
+			div.radio
+				label Los Angeles (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-lax' value='lax')
+				div.form#laxExtra
+					div.checkbox
+						label westside-southbay-310
+							input(type='checkbox' name='cl-cl:area-lax-extra' id='cl-cl:area-lax-wst' value='wst')
+					div.checkbox
+						label san fernando valley
+							input(type='checkbox' name='cl-cl:area-lax-extra' id='cl-cl:area-lax-sfv' value='sfv')
+					div.checkbox
+						label central LA 213/323
+							input(type='checkbox' name='cl-cl:area-lax-extra' id='cl-cl:area-lax-lac' value='lac')
+					div.checkbox
+						label san gabriel valley
+							input(type='checkbox' name='cl-cl:area-lax-extra' id='cl-cl:area-lax-sgv' value='sgv')
+					div.checkbox
+						label long beach / 562
+							input(type='checkbox' name='cl-cl:area-lax-extra' id='cl-cl:area-lax-lgb' value='lgb')
+					div.checkbox
+						label antelope valley
+							input(type='checkbox' name='cl-cl:area-lax-extra' id='cl-cl:area-lax-ant' value='ant')
+			div.radio
+				label Minneapolis
+					input(type='radio' name='area' id='cl-cl:area-min' value='min')
+			div.radio
+				label Montreal
+					input(type='radio' name='area' id='cl-cl:area-mon' value='mon')
+			div.radio
+				label Nashville
+					input(type='radio' name='area' id='cl-cl:area-nsh' value='nsh')
+			div.radio
+				label New York (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-nyc' value='nyc')
+				div.form#nycExtra
+					div.checkbox
+						label manhattan
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-mnh' value='mnh')
+					div.checkbox
+						label brooklyn
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-brk' value='brk')
+					div.checkbox
+						label queens
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-que' value='que')
+					div.checkbox
+						label bronx
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-brx' value='brx')
+					div.checkbox
+						label staten island
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-stn' value='stn')
+					div.checkbox
+						label new jersey
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-jsy' value='jsy')
+					div.checkbox
+						label long island
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-lgi' value='lgi')
+					div.checkbox
+						label westchester
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-wch' value='wch')
+					div.checkbox
+						label fairfield co, CT
+							input(type='checkbox' name='cl-cl:area-nyc-extra' id='cl-cl:area-nyc-fct' value='fct')
+			div.radio
+				label Oklahoma City
+					input(type='radio' name='area' id='cl-cl:area-okc' value='okc')
+			div.radio
+				label Philadelphia
+					input(type='radio' name='area' id='cl-cl:area-phi' value='phi')
+			div.radio
+				label Phoenix (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-phx' value='phx')
+				div.form#phxExtra
+					div.checkbox
+						label central / south phx
+							input(type='checkbox' name='cl-cl:area-phx-extra' id='cl-cl:area-phx-cph' value='cph')
+					div.checkbox
+						label east valley
+							input(type='checkbox' name='cl-cl:area-phx-extra' id='cl-cl:area-phx-evl' value='evl')
+					div.checkbox
+						label phx north
+							input(type='checkbox' name='cl-cl:area-phx-extra' id='cl-cl:area-phx-nph' value='nph')
+					div.checkbox
+						label west valley
+							input(type='checkbox' name='cl-cl:area-phx-extra' id='cl-cl:area-phx-wvl' value='wvl')
+			div.radio
+				label Providence
+					input(type='radio' name='area' id='cl-cl:area-prv' value='prv')
+			div.radio
+				label Sacramento
+					input(type='radio' name='area' id='cl-cl:area-sac' value='sac')
+			div.radio
+				label San Diego
+					input(type='radio' name='area' id='cl-cl:area-sdo' value='sdo')
+			div.radio
+				label San Francisco (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-sfo' value='sfo')
+				div.form#sfoExtra
+					div.checkbox
+						label city of san francisco
+							input(type='checkbox' name='cl-cl:area-sfo-extra' id='cl-cl:area-sfo-sfc' value='sfc')
+					div.checkbox
+						label south bay area
+							input(type='checkbox' name='cl-cl:area-sfo-extra' id='cl-cl:area-sfo-sby' value='sby')
+					div.checkbox
+						label east bay area
+							input(type='checkbox' name='cl-cl:area-sfo-extra' id='cl-cl:area-sfo-eby' value='eby')
+					div.checkbox
+						label peninsula
+							input(type='checkbox' name='cl-cl:area-sfo-extra' id='cl-cl:area-sfo-pen' value='pen')
+					div.checkbox
+						label north bay / marin
+							input(type='checkbox' name='cl-cl:area-sfo-extra' id='cl-cl:area-sfo-nby' value='nby')
+					div.checkbox
+						label santa cruz co
+							input(type='checkbox' name='cl-cl:area-sfo-extra' id='cl-cl:area-sfo-scz' value='scz')
+			div.radio
+				label Santa Barbara
+					input(type='radio' name='area' id='cl-cl:area-sba' value='sba')
+			div.radio
+				label Seattle (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-sea' value='sea')
+				div.form#seaExtra
+					div.checkbox
+						label seattle
+							input(type='checkbox' name='cl-cl:area-sea-extra' id='cl-cl:area-sea-see' value='see')
+					div.checkbox
+						label eastside
+							input(type='checkbox' name='cl-cl:area-sea-extra' id='cl-cl:area-sea-est' value='est')
+					div.checkbox
+						label snohomish county
+							input(type='checkbox' name='cl-cl:area-sea-extra' id='cl-cl:area-sea-sno' value='sno')
+					div.checkbox
+						label kitsap / west puget
+							input(type='checkbox' name='cl-cl:area-sea-extra' id='cl-cl:area-sea-kit' value='kit')
+					div.checkbox
+						label tacoma / pierce
+							input(type='checkbox' name='cl-cl:area-sea-extra' id='cl-cl:area-sea-tac' value='tac')
+					div.checkbox
+						label olympia / thurston
+							input(type='checkbox' name='cl-cl:area-sea-extra' id='cl-cl:area-sea-oly' value='oly')
+					div.checkbox
+						label south king co
+							input(type='checkbox' name='cl-cl:area-sea-extra' id='cl-cl:area-sea-skc' value='skc')
+			div.radio
+				label Toronto
+					input(type='radio' name='area' id='cl-cl:area-tor' value='tor')
+			div.radio
+				label Washington D.C. (select for subareas)
+					input(type='radio' name='area' id='cl-cl:area-wdc' value='wdc')
+				div.form#wdcExtra
+					div.checkbox
+						label district of columbia
+							input(type='checkbox' name='cl-cl:area-wdc-extra' id='cl-cl:area-wdc-doc' value='doc')
+					div.checkbox
+						label northern virginia
+							input(type='checkbox' name='cl-cl:area-wdc-extra' id='cl-cl:area-wdc-nva' value='nva')
+					div.checkbox
+						label maryland
+							input(type='checkbox' name='cl-cl:area-wdc-extra' id='cl-cl:area-wdc-mld' value='mld')
+		form.form
+		hr.featurette-divider
+		p.lead Additional Job Information
+		form.form
+			div.form-group
+				label(for='cl-cl:jobInfo-compensation') Compensation
+				input(id='cl-cl:jobInfo-compensation' name='cl-cl:jobInfo-compensation' type='text' placeholder='30.0').form-control
+			div.checkbox
+				label OK to Contact
+					input(type='checkbox' name='cl-cl:jobInfo-okToContact' id='cl-cl:jobInfo-okToContact' value='okToContact' checked='true')
+			div.checkbox
+				label OK to Repost
+					input(type='checkbox' name='cl-cl:jobInfo-okToRepost' id='cl-cl:jobInfo-okToRepost' value='okToRepost' checked='true')
+			div.checkbox
+				label Phone Calls OK
+					input(type='checkbox' name='cl-cl:jobInfo-phoneCallsOK' id='cl-cl:jobInfo-phoneCallsOK' value='phoneCallsOK' checked='true')
+		a.btn(href='javascript:void(0)')#otherOptionsBTN
+			strong Other Options &raquo;
+		form.form.collapse(id='otherOptions')
+			div.checkbox
+				label Part-Time
+					input(type='checkbox' name='cl-cl:jobInfo-partTime' id='cl-cl:jobInfo-partTime' value='partTime')
+			div.checkbox
+				label Contract
+					input(type='checkbox' name='cl-cl:jobInfo-contact' id='cl-cl:jobInfo-contract' value='contract')
+			div.checkbox
+				label Telecommuting
+					input(type='checkbox' name='cl-cl:jobInfo-tele' id='cl-cl:jobInfo-tele' value='tele')
+			div.checkbox
+				label Non-Profit
+					input(type='checkbox' name='cl-cl:jobInfo-nonProfit' id='cl-cl:jobInfo-nonProfit' value='nonProfit')
+			div.checkbox
+				label Internship
+					input(type='checkbox' name='cl-cl:jobInfo-internship' id='cl-cl:jobInfo-internship' value='internship')
+			div.checkbox
+				label Disability
+					input(type='checkbox' name='cl-cl:jobInfo-disability' id='cl-cl:jobInfo-disability' value='disability')
+			div.checkbox
+				label Internship
+					input(type='checkbox' name='cl-cl:jobInfo-internship' id='cl-cl:jobInfo-internship' value='internship')
+			div.checkbox
+				label Recruiters OK
+					input(type='checkbox' name='cl-cl:jobInfo-recruitersOK' id='cl-cl:jobInfo-recruitersOK' value='recruitersOK')
+	script(type='text/javascript').
+		$('#otherOptionsBTN').click(function() {
+			$('#otherOptions').collapse('toggle');
+			})
+		var watchLocation = function() {
+			$('input[name=area]:radio').change(function() {
+				hideAll();
+				var value = $(this).val();
+				if (value === 'bos') {
+					console.log('GOING TO BOSTON!')
+					$('#bosExtra').show();
+				} else if (value === 'chi') {
+					$('#chiExtra').show();
+				} else if (value === 'dal') {
+					$('#dalExtra').show();
+				} else if (value === 'hnl') {
+					$('#hnlExtra').show();
+				} else if (value === 'lax') {
+					$('#laxExtra').show();
+				} else if (value === 'nyc') {
+					$('#nycExtra').show();
+				} else if (value === 'phx') {
+					$('#phxExtra').show();
+				} else if (value === 'sfo') {
+					$('#sfoExtra').show();
+				} else if (value === 'sea') {
+					$('#seaExtra').show();
+				} else if (value === 'wdc') {
+					$('#wdcExtra').show();
+				}
+			});
+		}
+		var hideAll = function() {
+			$('#bosExtra').hide();
+			$('#chiExtra').hide();
+			$('#dalExtra').hide();
+			$('#hnlExtra').hide();
+			$('#laxExtra').hide();
+			$('#nycExtra').hide();
+			$('#phxExtra').hide();
+			$('#sfoExtra').hide();
+			$('#seaExtra').hide();
+			$('#wdcExtra').hide();
+		}
+		$(document).ready(function() {
+			hideAll();
+			console.log('YO YO');
+			watchLocation();
+		});
