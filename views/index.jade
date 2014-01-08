@@ -6,7 +6,7 @@ block content
 			h2 Uber Craigslist Machine! #uberdomination
 			p.lead Need to automatically post Uber and UberX job postings to Craigslist? Use the form below and click GO 	!
 		p.lead craigslist Account Credentials
-		form.form#cl-auth
+		form.form#cl-form
 			div.form-group
 				label(for='cl-username') craigslist Username
 				input(id='cl-username' name='cl-username' type='text' placeholder='craigslist-admin@uber.com').form-control
@@ -16,43 +16,39 @@ block content
 			div.form-group
 				label(for='cl-accountID') craigslist Account ID
 				input(id='cl-accountID' name='cl-accountID' type='text' placeholder='####').form-control
-		hr.featurette-divider
-		p.lead Post Basics
-		form.form#cl-postBasics
+			hr.featurette-divider
+			p.lead Post Basics
 			div.form-group
 				label(for='cl-title') Post Title
 				input(id='cl-title' name='cl-title' type='text' placeholder='Drive for Uber').form-control
 			label(for='cl-description') Post Description
 			textarea.form-control(placeholder='Job posting details' name='cl-description' rows=4)#cl-post-description
-		br
-		form.form
-			label(for='cl-cl:categorgy') Post Category
+			br
+			label(for='cl-cl:category') Post Category
 			div.radio
 				label Transportation
-					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-trp' value='trp' checked='TRUE')
+					input(type='radio' name='category' id='category-trp' value='trp' checked='TRUE')
 			div.radio
 				label Business / Management
-					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-bus' value='bus')
+					input(type='radio' name='category' id='category-bus' value='bus')
 			div.radio
 				label Customer Service
-					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-csr' value='csr')
+					input(type='radio' name='category' id='category-csr' value='csr')
 			div.radio
 				label Et Cetera
-					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-etc' value='etc')
+					input(type='radio' name='category' id='category-etc' value='etc')
 			div.radio
 				label General Labor
-					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-lab' value='lab')
+					input(type='radio' name='category' id='category-lab' value='lab')
 			div.radio
 				label Skilled Trades
-					input(type='radio' name='cl-cl:categorgy' id='cl-cl:categorgy-trd' value='trd')
-		hr.featurette-divider
-		p.lead Contact Information
-		form.form
+					input(type='radio' name='category' id='category-trd' value='trd')
+			hr.featurette-divider
+			p.lead Contact Information
 			div.form-group
 				label(for='cl-cl:replyEmail') Reply Email
-				input(id='cl-cl:replyEmail' name='cl-cl:replyEmail' type='text' placeholder='ubersf@uber.com').form-control
-		form.form
-			label(for='cl-cl:categorgy') Contact Attributes
+				input(id='cl-reply-email' name='cl-cl:replyEmail' type='text' placeholder='ubersf@uber.com').form-control
+			label(for='cl-cl:category') Contact Attributes
 			div.radio
 				label Publicly show reply email
 					input(type='radio' name='cl-cl:replyEmail-atrb' id='cl-cl:replyEmail-atrb-P' value='P' checked='TRUE')
@@ -62,9 +58,8 @@ block content
 			div.radio
 				label Don't show any email address
 					input(type='radio' name='cl-cl:replyEmail-atrb' id='cl-cl:replyEmail-atrb-A' value='A')
-		hr.featurette-divider
-		p <span class='lead'>Location Information </span>( * indicates subareas available )
-		form.form
+			hr.featurette-divider
+			p <span class='lead'>Location Information </span>( * indicates subareas available )
 			div.radio
 				label Atlanta
 					input(type='radio' name='area' id='cl-cl:area-atl' value='atl' checked='true')
@@ -327,80 +322,76 @@ block content
 					div.checkbox
 						label maryland
 							input(type='checkbox' name='cl-cl:area-wdc-extra' id='cl-cl:area-wdc-mld' value='mld')
-		form.form
-		hr.featurette-divider
-		p.lead Additional Job Information
-		form.form
+			hr.featurette-divider
+			p.lead Additional Job Information
 			div.form-group
 				label(for='cl-cl:jobInfo-compensation') Compensation
-				input(id='cl-cl:jobInfo-compensation' name='cl-cl:jobInfo-compensation' type='text' placeholder='30.0').form-control
+				input(id='cl-compensation' name='cl-cl:jobInfo-compensation' type='text' placeholder='30.0').form-control
 			div.checkbox
 				label OK to Contact
-					input(type='checkbox' name='cl-cl:jobInfo-okToContact' id='cl-cl:jobInfo-okToContact' value='okToContact' checked='true')
+					input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-okToContact' value='okToContact' checked='true')
 			div.checkbox
 				label OK to Repost
-					input(type='checkbox' name='cl-cl:jobInfo-okToRepost' id='cl-cl:jobInfo-okToRepost' value='okToRepost' checked='true')
+					input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-okToRepost' value='okToRepost' checked='true')
 			div.checkbox
 				label Phone Calls OK
-					input(type='checkbox' name='cl-cl:jobInfo-phoneCallsOK' id='cl-cl:jobInfo-phoneCallsOK' value='phoneCallsOK' checked='true')
-		a.btn(href='javascript:void(0)')#otherOptionsBTN
-			strong Other Options &raquo;
-		form.form.collapse(id='otherOptions')
-			div.checkbox
-				label Part-Time
-					input(type='checkbox' name='cl-cl:jobInfo-partTime' id='cl-cl:jobInfo-partTime' value='partTime')
-			div.checkbox
-				label Contract
-					input(type='checkbox' name='cl-cl:jobInfo-contact' id='cl-cl:jobInfo-contract' value='contract')
-			div.checkbox
-				label Telecommuting
-					input(type='checkbox' name='cl-cl:jobInfo-tele' id='cl-cl:jobInfo-tele' value='tele')
-			div.checkbox
-				label Non-Profit
-					input(type='checkbox' name='cl-cl:jobInfo-nonProfit' id='cl-cl:jobInfo-nonProfit' value='nonProfit')
-			div.checkbox
-				label Internship
-					input(type='checkbox' name='cl-cl:jobInfo-internship' id='cl-cl:jobInfo-internship' value='internship')
-			div.checkbox
-				label Disability
-					input(type='checkbox' name='cl-cl:jobInfo-disability' id='cl-cl:jobInfo-disability' value='disability')
-			div.checkbox
-				label Internship
-					input(type='checkbox' name='cl-cl:jobInfo-internship' id='cl-cl:jobInfo-internship' value='internship')
-			div.checkbox
-				label Recruiters OK
-					input(type='checkbox' name='cl-cl:jobInfo-recruitersOK' id='cl-cl:jobInfo-recruitersOK' value='recruitersOK')
-		hr.featurette-divider
+					input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-phoneCallsOK' value='phoneCallsOK' checked='true')
+			a.btn(href='javascript:void(0)')#otherOptionsBTN
+				strong Other Options &raquo;
+			div.collapse(id='otherOptions')
+				div.checkbox
+					label Part-Time
+						input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-partTime' value='partTime')
+				div.checkbox
+					label Contract
+						input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-contract' value='contract')
+				div.checkbox
+					label Telecommuting
+						input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-tele' value='tele')
+				div.checkbox
+					label Non-Profit
+						input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-nonProfit' value='nonProfit')
+				div.checkbox
+					label Internship
+						input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-internship' value='internship')
+				div.checkbox
+					label Disability
+						input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-disability' value='disability')
+				div.checkbox
+					label Internship
+						input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-internship' value='internship')
+				div.checkbox
+					label Recruiters OK
+						input(type='checkbox' name='jobInfo' id='cl-cl:jobInfo-recruitersOK' value='recruitersOK')
+			hr.featurette-divider
 		div.text-center
-			button(data-toggle='modal', href='#postModal').btn.btn-primary.btn-xl &nbsp&nbsp&nbsp&nbspGO!&nbsp&nbsp&nbsp&nbsp
+			button(href='javascript:void(0)' id='GO').btn.btn-primary.btn-xl &nbsp&nbsp&nbsp&nbspGO!&nbsp&nbsp&nbsp&nbsp
+	
+
 	script(type='text/javascript').
-		$('#otherOptionsBTN').click(function() {
-			$('#otherOptions').collapse('toggle');
-			})
 		var watchLocation = function() {
 			$('input[name=area]:radio').change(function() {
 				hideAll();
-				var value = $(this).val();
-				if (value === 'bos') {
-					console.log('GOING TO BOSTON!')
+				var city = $(this).val();
+				if (city === 'bos') {
 					$('#bosExtra').show();
-				} else if (value === 'chi') {
+				} else if (city === 'chi') {
 					$('#chiExtra').show();
-				} else if (value === 'dal') {
+				} else if (city === 'dal') {
 					$('#dalExtra').show();
-				} else if (value === 'hnl') {
+				} else if (city === 'hnl') {
 					$('#hnlExtra').show();
-				} else if (value === 'lax') {
+				} else if (city === 'lax') {
 					$('#laxExtra').show();
-				} else if (value === 'nyc') {
+				} else if (city === 'nyc') {
 					$('#nycExtra').show();
-				} else if (value === 'phx') {
+				} else if (city === 'phx') {
 					$('#phxExtra').show();
-				} else if (value === 'sfo') {
+				} else if (city === 'sfo') {
 					$('#sfoExtra').show();
-				} else if (value === 'sea') {
+				} else if (city === 'sea') {
 					$('#seaExtra').show();
-				} else if (value === 'wdc') {
+				} else if (city === 'wdc') {
 					$('#wdcExtra').show();
 				}
 			});
@@ -418,7 +409,7 @@ block content
 			$('#wdcExtra').hide();
 		}
 		var validate = function() {
-			$('#cl-auth').validate( {
+			$('#cl-form').validate( {
 				rules: {
 					'cl-username': {
 						minlength: 2,
@@ -432,23 +423,7 @@ block content
 					'cl-accountID': {
 						minlength: 2,
 						required: true
-					}
-				},
-				messages: {
-					'cl-username': 'Please enter a valid email username',
-					'cl-password': 'Please enter a valid password',
-					'cl-accountID': 'Please enter a valid account ID',
-				},
-				highlight: function(element) {
-					$(element).closest('.form-group').addClass('has-error');
-				},
-				success: function(element) {
-					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-					$(element).closest('.error').remove();
-				}
-			});
-			$('#cl-postBasics').validate( {
-				rules: {
+					},
 					'cl-title': {
 						minlength: 5,
 						required: true
@@ -459,6 +434,9 @@ block content
 					}
 				},
 				messages: {
+					'cl-username': 'Please enter a valid email username',
+					'cl-password': 'Please enter a valid password',
+					'cl-accountID': 'Please enter a valid account ID',
 					'cl-title': 'Please enter a valid post title',
 					'cl-description': 'Please enter a valid post description'
 				},
@@ -471,8 +449,69 @@ block content
 				}
 			});
 		}
+		var capture = function() {
+			// get auth credentials
+			var clauth = {
+				'username': $('#cl-username').val(),
+				'password': $('#cl-password').val(),
+				'accountID': $('cl-accountID').val()
+			};
+			// post info
+			var cljobinfo = [];
+			$("input[name=jobInfo]").each( function () {
+				if ( $(this).prop('checked') ) {
+					cljobinfo.push( $(this).attr('value')+"=\"1\"" );
+				};
+			});
+			var clpost = {
+				'title': $('#cl-title').val(),
+				'description': $('#cl-post-description').val(),
+				'category': $('input[name="category"]:checked').val(),
+				'replyEmail': $('#cl-reply-email').val(),
+				'privacy': $('input[name="cl-cl:replyEmail-atrb"]:checked').val(),
+				'compensation': $('#cl-compensation').val(),
+				'jobInfo': cljobinfo
+			};
+			// determine how large item array is
+			var areas = [];
+			var areaSelect = $('input[name="area"]:checked').val();
+			areas.push( {'area': areaSelect} );
+			if ( $('#cl-form').find('#'+areaSelect+'Extra').length === 1 ) {
+				$("input[name='cl-cl:area-"+areaSelect+"-extra']").each( function () {
+					if ( $(this).prop('checked') ) {
+						areas.push( { 'subarea': $(this).attr('value') } );
+					}
+				});
+			};
+			var areaCount = 0;
+			return {
+				'cl:auth': clauth,
+				'cl:item': clpost,
+				'cl:areas': JSON.stringify( areas )
+			}
+		}
+		var post = function( data ) {
+			return $.ajax({
+				type: "POST",
+				contentType: "application/json",
+				url: "http://localhost:3000/post",
+				xhrFields: {
+					withCredentials: true
+				},
+				data: JSON.stringify( data )
+			});
+		}
 		$(document).ready(function() {
 			hideAll();
 			watchLocation();
 			validate();
+			$('#otherOptionsBTN').click(function() {
+				$('#otherOptions').collapse('toggle');
+			});
+			$('#GO').click( function() {
+				if ( $('#cl-form').valid() ) {
+					$('#postModal').modal('show');
+					post( capture() );
+				}
+			});
 		});
